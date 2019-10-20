@@ -8,8 +8,6 @@ const TeamForm = ({
     team,
     usernameList,
 }) => {
-    console.log(usernameList);
-
     return (
         <>
             <label htmlFor="admins">Team Name</label>
@@ -42,10 +40,7 @@ const TeamForm = ({
                         <option key={uuid.v4()} value={id}>{username}</option>
                     )}
                 </select>
-
             </div>
-            
-
             <button onClick={handleSubmit}>Submit</button>
 
         </>

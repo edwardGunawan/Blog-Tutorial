@@ -1,5 +1,7 @@
 # Dynamic Input Tutorial
 
+[![Image from Gyazo](https://i.gyazo.com/1883a27a6a4c98529961c2be2039420d.gif)](https://gyazo.com/1883a27a6a4c98529961c2be2039420d)
+
 This demo file is serve for dynamic input tutorial. 
 
 Simple on advance dynamic input logic. No Styling involved.
