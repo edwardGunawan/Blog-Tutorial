@@ -45,7 +45,7 @@ lazy val testingakkahttptutorial = project.in(file("testingakkahttptutorial"))
     ).map(_%"test")
   )
 
-  lazy val prasejsonwithcircetutorial = project.in(file("parsejsonwithcircetutorial"))
+  lazy val parsejsonwithcircetutorial = project.in(file("parsejsonwithcircetutorial"))
   .settings(
     name:= "Parse Json with Circe Tutorial",
     commonSettings,
@@ -57,6 +57,12 @@ lazy val testingakkahttptutorial = project.in(file("testingakkahttptutorial"))
     ) ++ Seq (
       ScalaTest.scalaTest
     ).map(_ % "test")
+  )
+
+lazy val whatIsTypeClass = project.in(file("whatIsTypeClass"))
+  .settings(
+    name:= "What is a Type Class",
+    commonSettings
   )
 
 
