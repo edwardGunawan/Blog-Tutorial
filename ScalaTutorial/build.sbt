@@ -66,6 +66,15 @@ lazy val whatIsTypeClass = project.in(file("whatIsTypeClass"))
   )
 
 
+lazy val catsWriterType = project.in(file("catsWriterType"))
+  .settings(
+    name:= "Cats Writer Data Type Tutorial",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Cats.core
+    )
+  )
+
 
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value+".jar",
