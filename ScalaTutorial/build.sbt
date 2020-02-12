@@ -84,6 +84,12 @@ lazy val catsReaderType = project.in(file("catsReaderType"))
     )
   )
 
+lazy val combinationTutorial = project.in(file("combinationTutorial"))
+  .settings(
+    name:= "Combination Tutorial",
+    commonSettings
+  )
+
 
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value+".jar",
