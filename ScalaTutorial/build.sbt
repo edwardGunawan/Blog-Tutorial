@@ -84,6 +84,15 @@ lazy val catsReaderType = project.in(file("catsReaderType"))
     )
   )
 
+lazy val catsStateMonad = project.in(file("catsStateMonad"))
+  .settings(
+    name:= "Cats State Data Type",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Cats.core
+    )
+  )
+
 lazy val combinationTutorial = project.in(file("combinationTutorial"))
   .settings(
     name:= "Combination Tutorial",
