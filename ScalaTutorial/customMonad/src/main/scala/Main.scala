@@ -1,18 +1,20 @@
 import cats.Monad
 import scala.annotation.tailrec
+
+import cats.implicits._
+
+
 object Main extends App {
-  val optionMonad = new Monad[Option] {
-    override def pure[A](x: A): Option[A] = Some(x)
-
-    override def flatMap[A, B](fa: Option[A])(f: A => Option[B]): Option[B] = fa flatMap(f)
-
-    @tailrec
-    override def tailRecM[A, B](a: A)(f: A => Option[Either[A, B]]): Option[B] = f(a) match {
-      case None => None
-      case Some(Left(a)) => tailRecM(a)(f)
-      case Some(Right(b)) => Some(b)
-    }
+  
+  val endResult = for {
+    a <- CustomMonad(1)
+    b <- CustomMonad(2)
+  } yield {
+    a + b
   }
+  println(endResult)
+
+
 
 
 }
