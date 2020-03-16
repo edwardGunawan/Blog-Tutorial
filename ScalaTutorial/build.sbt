@@ -93,6 +93,15 @@ lazy val catsStateMonad = project.in(file("catsStateMonad"))
     )
   )
 
+lazy val customMonad = project.in(file("customMonad"))
+  .settings(
+    name := "Custom Monad",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Cats.core
+    )
+  )
+
 lazy val combinationTutorial = project.in(file("combinationTutorial"))
   .settings(
     name:= "Combination Tutorial",
