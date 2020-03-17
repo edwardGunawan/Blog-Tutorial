@@ -5,7 +5,7 @@ import cats.implicits._
 
 
 object Main extends App {
-  
+
   val endResult = for {
     a <- CustomMonad(1)
     b <- CustomMonad(2)
