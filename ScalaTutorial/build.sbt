@@ -108,6 +108,12 @@ lazy val combinationTutorial = project.in(file("combinationTutorial"))
     commonSettings
   )
 
+lazy val functionalDS = project.in(file("functionalDS"))
+  .settings(
+    name:= "Functional Data Structure",
+    commonSettings
+  )
+
 
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value+".jar",
@@ -118,6 +124,8 @@ lazy val assemblySettings = Seq(
     case x => MergeStrategy.first
   }
 )
+
+
 
 
 
