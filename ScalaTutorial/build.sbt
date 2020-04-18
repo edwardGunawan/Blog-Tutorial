@@ -5,7 +5,8 @@ lazy val commonSettings = Seq (
   version := "0.1",
   scalaVersion := "2.13.1",
   assemblyJarName in assembly := s"${name}-${version}.jar",
-  test in assembly := {} // not run tests at assembly,
+  test in assembly := {}, // not run tests at assembly
+  scalacOptions += "-language:higherKinds"
 
 )
 
@@ -114,6 +115,16 @@ lazy val functionalDS = project.in(file("functionalDS"))
     commonSettings
   )
 
+lazy val asynchronousTesting = project.in(file("asynchronousTesting"))
+  .settings(
+    name:= "Asynchronous Testing",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Cats.core,
+      ScalaTest.scalaTest
+    )
+  )
+
 
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value+".jar",
@@ -124,6 +135,8 @@ lazy val assemblySettings = Seq(
     case x => MergeStrategy.first
   }
 )
+
+
 
 
 

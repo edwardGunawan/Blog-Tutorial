@@ -1,0 +1,4 @@
+class DBServiceSpec {
+  trait
+
+}
