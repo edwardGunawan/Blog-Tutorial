@@ -1,7 +1,9 @@
 import io.circe.parser
-import org.scalatest.{MustMatchers, WordSpec}
+import org.scalatest.matchers.must.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class DecodeObjectsSpec extends WordSpec with MustMatchers {
+
+class DecodeObjectsSpec extends AnyWordSpec with Matchers {
 
   "Decode Objects" should {
     "decode product json object into a product object pojo" in {
@@ -19,6 +21,7 @@ class DecodeObjectsSpec extends WordSpec with MustMatchers {
 
       parser.decode[Product](inputString) match {
         case Right(product) => product must equal(productStub)
+        case Left(_) => fail()
       }
     }
   }

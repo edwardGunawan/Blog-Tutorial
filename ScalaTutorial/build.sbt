@@ -3,11 +3,37 @@ import Dependencies._
 lazy val commonSettings = Seq (
 //  scalacOptions ++= Seq("-Ypartial-unification", "-deprecation"),
   version := "0.1",
-  scalaVersion := "2.13.1",
+  scalaVersion := Scala.v12,
+  scalacOptions := {
+    CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((2,11)) =>
+        Seq("-Ypartial-unification", "-deprecation")
+      case Some((2,12)) =>
+        Seq("-Ypartial-unification", "-deprecation")
+      case Some((2,13)) =>
+        Seq("-Xlint", "-Ywarn-unused", "-deprecation", "-Ymacro-annotations")
+    }
+  },
+  dependencyUpdatesFilter -= moduleFilter(name = "scala-library"),
+
   assemblyJarName in assembly := s"${name}-${version}.jar",
   test in assembly := {}, // not run tests at assembly
   scalacOptions += "-language:higherKinds"
 
+)
+
+lazy val root = project.in(file(".")).aggregate(
+  awslambdascalatutorial,
+  testingakkahttptutorial,
+  parsejsonwithcircetutorial,
+  whatIsTypeClass,
+  catsWriterType,
+  catsReaderType,
+  catsStateMonad,
+  customMonad,
+  combinationTutorial,
+  functionalDS,
+  asynchronousTesting
 )
 
 lazy val awslambdascalatutorial = project.in(file("awslambdascalatutorial"))
@@ -53,11 +79,13 @@ lazy val testingakkahttptutorial = project.in(file("testingakkahttptutorial"))
     libraryDependencies ++= Seq (
       Circe.core,
       Circe.generic,
+      Circe.genericExtra,
       Circe.parser,
-      Cats.core
+      Cats.core,
     ) ++ Seq (
       ScalaTest.scalaTest
-    ).map(_ % "test")
+    ).map(_ % "test"),
+    addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
   )
 
 lazy val whatIsTypeClass = project.in(file("whatIsTypeClass"))

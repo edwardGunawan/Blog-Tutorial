@@ -1,6 +1,12 @@
 import sbt._
 
 object Dependencies {
+
+  object Scala {
+    val v12 = "2.12.10"
+    val v13 = "2.13.1"
+  }
+
   object AWSSDKV2 {
     private val version = "2.9.22"
     val core:ModuleID = "software.amazon.awssdk" % "core" % version
@@ -12,7 +18,7 @@ object Dependencies {
   }
 
   object Circe {
-    private val version = "0.12.3"
+    private val version = "0.13.0"
     private val genericExtraVersion = "0.12.2"
 
     val core:ModuleID = "io.circe" %% "circe-core" % version
@@ -24,7 +30,7 @@ object Dependencies {
   }
 
   object Cats {
-    private val version = "2.0.0"
+    private val version = "2.1.1"
     val core:ModuleID = "org.typelevel" %% "cats-core" % version
     val effect:ModuleID = "org.typelevel" %% "cats-effect"% version
   }
@@ -34,7 +40,7 @@ object Dependencies {
 
   // for testing
   object ScalaTest {
-    private val version = "3.0.8"
+    private val version = "3.2.0"
     val scalaTest:ModuleID = "org.scalatest" %% "scalatest" % version
   }
 
