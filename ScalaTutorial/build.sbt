@@ -153,6 +153,12 @@ lazy val asynchronousTesting = project.in(file("asynchronousTesting"))
     )
   )
 
+lazy val corecursion = project.in(file("corecursion"))
+  .settings(
+    name := "Corecursion",
+    commonSettings
+  )
+
 
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value+".jar",
