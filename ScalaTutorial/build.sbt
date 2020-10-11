@@ -180,6 +180,19 @@ lazy val freeMonad = project
     )
   )
 
+lazy val fs2 = project
+  .in(file("fs2"))
+  .settings(
+    name := "FS2",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Cats.core,
+      Cats.effect,
+      FS2.core,
+      FS2.io
+    )
+  )
+
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value + ".jar",
   assemblyMergeStrategy in assembly := {
