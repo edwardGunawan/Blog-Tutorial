@@ -193,6 +193,17 @@ lazy val fs2 = project
     )
   )
 
+lazy val trampolining = project
+  .in(file("tarmpoline"))
+  .settings(
+    name := "trampolining",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Cats.core,
+      Cats.effect
+    )
+  )
+
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value + ".jar",
   assemblyMergeStrategy in assembly := {

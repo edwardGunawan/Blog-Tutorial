@@ -4,10 +4,12 @@ import GeneralizedFreeStructure.Dsl.Create
 import GeneralizedFreeStructure.Free.{FlatMap, Pure}
 import cats.{Id, Monad}
 
+import scala.annotation.tailrec
+
 sealed trait Free[F[_], A] {
 
   def flatMap[B](f: A => Free[F, B]): Free[F, B] = this match {
-    case Free.FlatMap(fa, fn) => FlatMap(fa, fn andThen (_ flatMap f))
+    case Free.FlatMap(fa, fn) => FlatMap(fa, fn andThen (_ flatMap f)) // because you execute the this flatMap first
     case Free.Pure(a) => f(a)
   }
   def map[B](f: A => B): Free[F, B] = flatMap(a => Pure(f(a)))
