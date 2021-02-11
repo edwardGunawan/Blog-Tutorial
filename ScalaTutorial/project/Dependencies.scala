@@ -35,6 +35,12 @@ object Dependencies {
     val effect: ModuleID = "org.typelevel" %% "cats-effect" % version
   }
 
+  object CatsRetry {
+    private val version = "0.3.2"
+    val core: ModuleID = "com.github.cb372" %% "cats-retry-core" % version
+    val effect: ModuleID = "com.github.cb372" %% "cats-retry-cats-effect" % version
+  }
+
   object FS2 {
     private val version = "2.3.0"
     val core: ModuleID = "co.fs2" %% "fs2-core" % version
