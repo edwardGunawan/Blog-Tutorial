@@ -220,6 +220,20 @@ lazy val circuitBreaker = project
     addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.3" cross CrossVersion.full)
   )
 
+lazy val paxos = project
+  .in(file("paxos"))
+  .settings(
+    name := "paxos",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Cats.core,
+      Cats.effect
+    ) ++ Seq(
+      ScalaTest.scalaTest
+    ).map(_ % "test"),
+    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.3" cross CrossVersion.full)
+  )
+
 lazy val assemblySettings = Seq(
   assemblyJarName in assembly := name.value + ".jar",
   assemblyMergeStrategy in assembly := {
